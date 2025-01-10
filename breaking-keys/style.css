@@ -1,0 +1,289 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #232323;
+  color: #e2b714;
+}
+
+.container {
+  text-align: center;
+  background: #2c2c2c;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 900px;
+}
+
+h1 {
+  font-family: 'Rubik Mono One', monospace;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  color: #e2b714;
+  text-shadow: 0 0 10px rgba(226, 183, 20, 0.3);
+  letter-spacing: -1px;
+}
+
+.typing-area {
+  position: relative;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #363636;
+  border-radius: 8px;
+  min-height: 140px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.typing-area.active {
+  border-color: #e2b714;
+  box-shadow: 0 0 20px rgba(226, 183, 20, 0.2);
+}
+
+.text-display {
+  position: relative;
+  font-size: 1.5rem;
+  line-height: 1.75;
+  text-align: left;
+  width: 100%;
+  min-height: 60px;
+  font-family: 'Roboto Mono', monospace;
+  padding: 0;
+  margin: 0;
+}
+
+.reference-text {
+  color: #e2b714;
+  opacity: 0.05;
+  white-space: pre-wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.typed-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #646669;
+  white-space: pre-wrap;
+  z-index: 2;
+}
+
+.char-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.reference-char {
+  color: #646669;
+  opacity: 0.6;
+}
+
+.typed-char {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d1d0c5;
+}
+
+.typed-char.correct {
+  color: #d1d0c5;
+}
+
+.typed-char.incorrect {
+  color: #ca4754;
+  background: rgba(202, 71, 84, 0.2);
+}
+
+#input-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  cursor: text;
+}
+
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #363636;
+  border-radius: 8px;
+}
+
+#results p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #646669;
+}
+
+#results span {
+  color: #d1d0c5;
+  font-weight: 500;
+}
+
+
+/* Add smooth transitions */
+.container, .typing-area, #results {
+  transition: all 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .typing-area {
+    padding: 1rem;
+    min-height: 120px;
+  }
+
+  .text-display {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  #results {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  #results p {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+    margin: -0.5rem 0 1.5rem;
+  }
+
+  .restart-btn {
+    padding: 0.8rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Add styles for touch devices */
+@media (hover: none) {
+  .typing-area {
+    cursor: default;
+  }
+
+  .typing-hint {
+    display: none;
+  }
+
+  .restart-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Prevent text zoom on mobile */
+@media screen and (max-width: 768px) {
+  input[type="text"] {
+    font-size: 16px;
+  }
+}
+
+/* Add styles for better touch interaction */
+.typing-area:focus-within {
+  border-color: #e2b714;
+  box-shadow: 0 0 20px rgba(226, 183, 20, 0.2);
+}
+
+/* Ensure characters align perfectly */
+.correct, .incorrect {
+  display: inline-block;
+  position: relative;
+}
+
+.typing-hint {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #646669;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.typing-area.active .typing-hint {
+  opacity: 0;
+}
+
+.correct {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d1d0c5;
+  opacity: 1;
+}
+
+.incorrect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ca4754;
+  background: rgba(202, 71, 84, 0.2);
+  opacity: 1;
+}
+
+/* Add these styles for character-level positioning */
+.char {
+  display: inline-block;
+  position: relative;
+}
+
+/* Add styles for the restart button */
+.restart-btn {
+    background: #e2b714;
+    color: #232323;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    background: #c49c11;
+}
+
+/* Add styles for the tagline */
+.tagline {
+    color: #646669;
+    font-size: 1.1rem;
+    margin: -1rem 0 2rem;
+    font-weight: 400;
+    font-style: italic;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Breaking Keys</title>
+  <link rel="icon" type="image/png" href="https://em-content.zobj.net/source/microsoft-teams/337/keyboard_2328-fe0f.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/compromise"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://unpkg.com https://fonts.googleapis.com https://fonts.gstatic.com https://em-content.zobj.net 'unsafe-inline';">
+</head>
+<body>
+  <div class="container">
+    <h1>Breaking Keys</h1>
+    <p class="tagline">Unleash your typing fury... one key at a time! 🚀⌨️</p>
+    <div class="typing-area">
+      <div class="text-display">
+        <div id="sentence" class="reference-text"></div>
+        <div id="typed-text" class="typed-text"></div>
+      </div>
+      <input type="text" id="input-box" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    </div>
+    <div id="results">
+      <p>Time Taken: <span id="time-taken">0</span> seconds</p>
+      <p>Words Per Minute (WPM): <span id="wpm">0</span></p>
+      <p>Accuracy: <span id="accuracy">0</span>%</p>
+      <button id="restart-btn" class="restart-btn">Restart Test</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
